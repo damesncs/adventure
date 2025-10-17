@@ -12,16 +12,14 @@
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 public class Adventure {
-    
-    private static Map map;
-    
-    private static ArrayList<Item> playerInventory;
-    
+
+    public static final String SPACE = " ";
+
     public static void main(String args[]){
-        map = new Map();
-        playerInventory = new ArrayList<Item>();
-        
+        GameState state = new GameState(new Map());
+
         // basic game loop
         Scanner scn = new Scanner(System.in);
         System.out.println("Text Adventure Game!");
@@ -30,10 +28,9 @@ public class Adventure {
             System.out.println("Enter command:");
             String input = scn.nextLine();
             if(input.equals("quit")) break;
-            if(input.equals("help")) { System.out.println(Command.getHelp()); continue; }
-            Command c = Command.parseFromString(input);
+            Command c = parseUserInput(input);
             if(c.isValid()){
-                String result = doCommand(c);
+                String result = c.run(state);
                 System.out.println(result);
             } else {
                 System.out.println(c.getErrorMessage());
@@ -41,67 +38,41 @@ public class Adventure {
         }
         System.out.println("quitting");
     }
-    
-    // process the command (match the command with a handler method)
-    private static String doCommand(Command c){
-        if (c.is(Command.LOOK)){
-            return handleLook();
+
+    private static Command parseUserInput(String input){
+        String cmdToken = getCommandToken(input);
+
+        if(cmdToken.equals(Command.INV)) return new ListInventory();
+        if(cmdToken.equals(Command.LOOK)) return new Look();
+        if(cmdToken.equals(Command.GO)) return new Go(parseNouns(input));
+        if(cmdToken.equals(Command.HELP)) return new Help();
+
+        return new Command("Didn't recognize command: " + input);
+    }
+
+    private static String getCommandToken(String input){
+        if(input.indexOf(SPACE) == -1){
+            // input doesn't contain a space
+            return input;
+        } else {
+            // input does contain a space, so return the input, up to the space
+            return input.substring(0, input.indexOf(SPACE));
         }
-        else if (c.is(Command.GO)){
-            return handleGo(c.getNoun());
-        } 
-        else if (c.is(Command.TAKE)){
-            return handleTake(c.getNoun());
+    }
+
+    private static ArrayList<String> parseNouns(String input){
+        try{
+            String nounsStr = input.substring(input.indexOf(SPACE) + 1);
+            return new ArrayList<String>(Arrays.asList(nounsStr.split(SPACE)));
         }
-        else if (c.is(Command.INV)){
-            return handleInv();
+        catch (Exception e){
+            return new ArrayList<String>(1);
         }
-        else if(c.is(Command.DROP)){
-            return handleDrop(c.getNoun());
-        }
-        else {
-            // un-implemented command
-            return "Can't " + c.getVerb() + " - Command not recognized.";
-        }
+        
     }
     
     // Command handler methods - private static methods
     // These should return a String, and can accept the String for the noun which was entered
     
-    private static String handleLook(){
-        return map.describeCurrentRoom();
-    }
-    
-    private static String handleGo(String noun){
-        int doorNum = Integer.parseInt(noun);
-        return map.goDoor(doorNum);
-    }
-    
-    private static String handleTake(String noun){
-        Item i = map.getCurrentRoom().takeItemFromRoom(noun);
-        if(i != null){
-            playerInventory.add(i);
-            return "You take the " + i.getName();
-        } else {
-            return "No such item to take.";
-        }
-    }
-    
-    private static String handleInv(){
-        String invStr = "Your inventory: \n";
-        if(playerInventory.size() == 0){
-            invStr = "Nothing in inventory.";
-        } else {
-            for(Item i : playerInventory){
-                invStr += i.describe() + "\n";
-            }
-        }
-        return invStr;
-    }
-    
-    private static String handleDrop(String noun){
-        // TODO remove the item object from playerInventory and add to room
-        return "You drop the " + noun;
-    }
     
 }

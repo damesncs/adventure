@@ -1,4 +1,4 @@
-public class Look extends Command{
+public class Look extends Command {
     
     public Look(){
         super();

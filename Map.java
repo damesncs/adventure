@@ -4,7 +4,7 @@ public class Map {
     private Room currentRoom;
     
     public Map(){
-        // here we will set up the rooms in the map
+        // set up the rooms in the map
         Room blueRoom = new Room("Blue room", "a room with blue walls.");
         this.startRoom = blueRoom;
         this.currentRoom = this.startRoom;

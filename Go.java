@@ -18,8 +18,12 @@ public class Go extends Command {
         }
     }
 
+    public static String getNounHelp(){
+        return "[door #]";
+    }
+
     public static String getHelp(){
-        return "[door #] - go through a door";
+        return "go through a door";
     }
 
     public String run(GameState state){

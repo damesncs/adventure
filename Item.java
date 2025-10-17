@@ -15,5 +15,9 @@ public class Item {
         return name;
     }
 
-    
+    public String useItem(GameState state){
+        return "the " + name + "  does something, presumably.";
+    }
+
+
 }

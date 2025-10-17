@@ -6,15 +6,15 @@ public class Help extends Command {
 
     public String run(GameState state){
         String help = "";
-        help += formatHelp(Adventure.INV, ListInventory.getHelp());
-        help += formatHelp(Adventure.LOOK, Look.getHelp());
-        help += formatHelp(Adventure.GO, Go.getHelp());
-        help += formatHelp(Adventure.HELP, Help.getHelp());
+        help += formatHelp(Command.INV, ListInventory.getHelp());
+        help += formatHelp(Command.LOOK, Look.getHelp());
+        help += formatHelp(Command.GO, Go.getHelp());
+        help += formatHelp(Command.HELP, Help.getHelp());
         return help;
     }
 
     private String formatHelp(String cmd, String help){
-        return cmd + " - " + help + "\n";
+        return cmd + " " + help + "\n";
     }
 
     public static String getHelp(){

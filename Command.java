@@ -40,6 +40,10 @@ public class Command {
     public static String getHelp(){
         return "default command - does nothing";
     }
+
+    public static String getNounHelp(){
+        return "";
+    }
     
     public boolean isValid(){
         return parsedSuccessfully;

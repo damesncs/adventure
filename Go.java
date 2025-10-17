@@ -7,7 +7,7 @@ public class Go extends Command {
     public Go(ArrayList<String> nouns){
         super(nouns);
         try {
-            System.out.println("Go debug: " + nouns);
+            // System.out.println("Go debug: " + nouns);
             doorNum = Integer.parseInt(getNouns().get(0));
         } 
         catch(NumberFormatException e){
@@ -27,6 +27,11 @@ public class Go extends Command {
     }
 
     public String run(GameState state){
-        return state.map.goDoor(doorNum);
+        try {
+            return state.map.goDoor(doorNum);
+        }
+        catch(IndexOutOfBoundsException e){
+            return "not valid door number";
+        }
     }
 }

@@ -45,6 +45,7 @@ public class Adventure {
         if(cmdToken.equals(Command.INV)) return new ListInventory();
         if(cmdToken.equals(Command.LOOK)) return new Look();
         if(cmdToken.equals(Command.GO)) return new Go(parseNouns(input));
+        if(cmdToken.equals(Command.TAKE)) return new TakeItem(parseNouns(input));
         if(cmdToken.equals(Command.HELP)) return new Help();
 
         return new Command("Didn't recognize command: " + input);

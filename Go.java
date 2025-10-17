@@ -19,7 +19,7 @@ public class Go extends Command {
     }
 
     public static String getNounHelp(){
-        return "[door #]";
+        return "door #";
     }
 
     public static String getHelp(){

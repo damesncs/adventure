@@ -23,7 +23,7 @@ public class Adventure {
         // basic game loop
         Scanner scn = new Scanner(System.in);
         System.out.println("Text Adventure Game!");
-        System.out.println("Enter 'help' to see all available commands");
+        System.out.println("Enter 'help' to see all available commands. Enter 'quit' to end.");
         while (true){
             System.out.println("Enter command:");
             String input = scn.nextLine();

@@ -21,7 +21,4 @@ public class ListInventory extends Command {
         return invStr;
     }
 
-
-
-
 }

@@ -31,8 +31,6 @@ public class Command {
         this.errorMessage = "";
     }
 
-
-
     public String run(GameState state){
         return "nothing happens";
     }

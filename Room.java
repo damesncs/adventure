@@ -34,6 +34,7 @@ public class Room {
     public Item takeItemFromRoom(String itemName){
         for(Item i : items){
             if(i.getName().equals(itemName)){
+                items.remove(i);
                 return i;
             }
         }

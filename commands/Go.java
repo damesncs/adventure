@@ -1,4 +1,7 @@
+package commands;
 import java.util.ArrayList;
+
+import core.GameState;
 
 public class Go extends Command {
     

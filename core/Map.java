@@ -1,3 +1,8 @@
+package core;
+import items.Bread;
+import items.PeanutButter;
+
+
 public class Map {
     
     private Room startRoom;

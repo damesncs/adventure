@@ -1,4 +1,16 @@
+package core;
 import java.util.Scanner;
+
+import commands.CombineItems;
+import commands.Command;
+import commands.Go;
+import commands.Help;
+import commands.ListInventory;
+import commands.Look;
+import commands.TakeItem;
+import commands.UseItem;
+
+
 import java.util.ArrayList;
 import java.util.Arrays;
 public class Adventure {

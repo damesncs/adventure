@@ -1,3 +1,6 @@
+package commands;
+import core.GameState;
+
 public class Help extends Command {
     
     public Help(){

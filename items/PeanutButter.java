@@ -1,3 +1,6 @@
+package items;
+import core.Item;
+
 public class PeanutButter extends Item {
     
     public PeanutButter(String name){

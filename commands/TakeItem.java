@@ -1,4 +1,8 @@
+package commands;
 import java.util.ArrayList;
+
+import core.GameState;
+import core.Item;
 
 public class TakeItem extends Command {
 
@@ -10,7 +14,7 @@ public class TakeItem extends Command {
         try{
             Item i = state.map.getCurrentRoom().takeItemFromRoom(getNouns().get(0));
             if(i != null){
-                state.playerInventory.add(i);
+                state.addItemToInventory(i);
                 return "You take the " + i.getName();
             } else {
                 return "No such item to take.";

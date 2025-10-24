@@ -1,3 +1,6 @@
+package items;
+import core.Item;
+
 public class Bread extends Item {
     
     public Bread(String name){

@@ -1,4 +1,7 @@
+package items;
 import java.util.ArrayList;
+
+import core.Item;
 
 public class Box extends Item {
 

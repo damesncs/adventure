@@ -1,3 +1,6 @@
+package commands;
+import core.GameState;
+import core.Item;
 
 public class ListInventory extends Command {
 
@@ -11,10 +14,10 @@ public class ListInventory extends Command {
 
     public String run(GameState state){
         String invStr = "Your inventory: \n";
-        if(state.playerInventory.size() == 0){
+        if(state.getInventorySize() == 0){
             invStr = "Nothing in inventory.";
         } else {
-            for(Item i : state.playerInventory){
+            for(Item i : state.getInventory()){
                 invStr += i.describe() + "\n";
             }
         }

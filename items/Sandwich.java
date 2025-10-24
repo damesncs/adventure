@@ -1,3 +1,6 @@
+package items;
+import core.Item;
+
 public class Sandwich extends Item {
     
     public Sandwich(String name, String desc){

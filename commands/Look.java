@@ -1,3 +1,6 @@
+package commands;
+import core.GameState;
+
 public class Look extends Command {
     
     public Look(){

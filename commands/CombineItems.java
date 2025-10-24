@@ -1,4 +1,8 @@
+package commands;
 import java.util.ArrayList;
+
+import core.GameState;
+import core.Item;
 
 public class CombineItems extends Command {
     

@@ -31,11 +31,13 @@ public class Adventure {
     private static Command parseUserInput(String input){
         String cmdToken = getCommandToken(input);
 
-        if(cmdToken.equals(Command.INV)) return new ListInventory();
+        if(cmdToken.equals(Command.HELP)) return new Help();
         if(cmdToken.equals(Command.LOOK)) return new Look();
         if(cmdToken.equals(Command.GO)) return new Go(parseNouns(input));
+        if(cmdToken.equals(Command.INV)) return new ListInventory();
         if(cmdToken.equals(Command.TAKE)) return new TakeItem(parseNouns(input));
-        if(cmdToken.equals(Command.HELP)) return new Help();
+        if(cmdToken.equals(Command.USE)) return new UseItem(parseNouns(input));
+        if(cmdToken.equals(Command.COMBINE)) return new CombineItems(parseNouns(input));
 
         return new Command("Didn't recognize command: " + input);
     }
@@ -51,13 +53,16 @@ public class Adventure {
     }
 
     private static ArrayList<String> parseNouns(String input){
-        try{
-            String nounsStr = input.substring(input.indexOf(SPACE) + 1);
-            //System.out.println("debug nounsStr: " + nounsStr);
-            return new ArrayList<String>(Arrays.asList(nounsStr.split(SPACE)));
+        if(input.indexOf(SPACE) != -1){
+            try{
+                String nounsStr = input.substring(input.indexOf(SPACE) + 1);
+                //System.out.println("debug nounsStr: " + nounsStr);
+                return new ArrayList<String>(Arrays.asList(nounsStr.split(SPACE)));
+            }
+            catch (Exception e){
+                return new ArrayList<String>(1);
+            }  
         }
-        catch (Exception e){
-            return new ArrayList<String>(1);
-        }   
+        return new ArrayList<String>(1); 
     }
 }

@@ -11,6 +11,12 @@ public class Map {
         
         Item paperclip = new Item("paperclip", "a normal paperclip");
         blueRoom.addItem(paperclip);
+        PeanutButter pb = new PeanutButter("jif");
+        blueRoom.addItem(pb);
+        Bread bread = new Bread("bread");
+        blueRoom.addItem(bread);
+
+
         
         Room redRoom = new Room("Red room", "a room with red walls.");
         blueRoom.addDoorTo(redRoom, "dusty door");

@@ -8,6 +8,8 @@ public class Command {
     public static final String TAKE = "take";
     public static final String DROP =  "drop";
     public static final String INV = "inv";
+    public static final String USE = "use";
+    public static final String COMBINE = "combine";
 
     private ArrayList<String> nouns;
     private boolean parsedSuccessfully;

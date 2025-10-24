@@ -9,9 +9,12 @@ public class Help extends Command {
 
     public String run(GameState state){
         String help = "";
-        help += formatHelp(Command.INV, ListInventory.getHelp());
         help += formatHelp(Command.LOOK, Look.getNounHelp(), Look.getHelp());
+        help += formatHelp(Command.INV, ListInventory.getHelp());
+        help += formatHelp(Command.TAKE, TakeItem.getNounHelp(), TakeItem.getHelp());
         help += formatHelp(Command.GO, Go.getNounHelp(), Go.getHelp());
+        help += formatHelp(Command.USE, UseItem.getNounHelp(), UseItem.getHelp());
+        help += formatHelp(Command.COMBINE, CombineItems.getNounHelp(), CombineItems.getHelp());
         help += formatHelp(Command.HELP, Help.getHelp());
         return help;
     }

@@ -1,7 +1,6 @@
 package core;
 import java.util.ArrayList;
 
-
 public class GameState {
     public Map map;
     
@@ -28,6 +27,10 @@ public class GameState {
 
     public void addItemToInventory(Item item){
         playerInventory.add(item);
+    }
+
+    public void removeItemFromInventory(Item item){
+        playerInventory.remove(item);
     }
 
     public int getInventorySize(){

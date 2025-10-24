@@ -36,7 +36,7 @@ public class Item {
     }
 
     public String useItem(GameState state){
-        return "the " + name + "  does something, presumably.";
+        return "the " + name + " does something, presumably.";
     }
 
     public Item combineWithAnotherItem(Item item){

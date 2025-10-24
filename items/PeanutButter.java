@@ -1,4 +1,5 @@
 package items;
+import core.GameState;
 import core.Item;
 
 public class PeanutButter extends Item {
@@ -7,7 +8,7 @@ public class PeanutButter extends Item {
         super(name, "a jar of peanut butter", false, false);
     }
 
-    public String useItem(){
+    public String useItem(GameState state){
         return "You eat some peanut butter. It is delicious.";
     }
 

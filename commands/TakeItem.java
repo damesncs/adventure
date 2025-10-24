@@ -25,11 +25,11 @@ public class TakeItem extends Command {
     }
 
     public static String getNounHelp(){
-        return "[item]";
+        return "item";
     }
 
     public static String getHelp(){
-        return "[item] - pick up the item";
+        return "pick up the item";
     }
 
 }

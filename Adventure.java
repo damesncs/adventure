@@ -1,15 +1,3 @@
-// a simple text adventure game to demonstrate class design concepts:
-
-// access modifiers: public / private
-// static vs instance: methods and fields
-// constructors
-// accessor methods
-
-// To add a new command:
-// 1. Add a new constant (public static final String) to Command
-// 2. Add a handler method to Adventure (preferably named `handle...`)
-// 3. Map the command to the handler method in doCommand() 
-
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,10 +8,10 @@ public class Adventure {
     public static void main(String args[]){
         GameState state = new GameState(new Map());
 
-        // basic game loop
         Scanner scn = new Scanner(System.in);
         System.out.println("Text Adventure Game!");
         System.out.println("Enter 'help' to see all available commands. Enter 'quit' to end.");
+
         while (true){
             System.out.println("Enter command:");
             String input = scn.nextLine();
@@ -37,6 +25,7 @@ public class Adventure {
             }
         }
         System.out.println("quitting");
+        scn.close();
     }
 
     private static Command parseUserInput(String input){
@@ -64,16 +53,11 @@ public class Adventure {
     private static ArrayList<String> parseNouns(String input){
         try{
             String nounsStr = input.substring(input.indexOf(SPACE) + 1);
+            //System.out.println("debug nounsStr: " + nounsStr);
             return new ArrayList<String>(Arrays.asList(nounsStr.split(SPACE)));
         }
         catch (Exception e){
             return new ArrayList<String>(1);
-        }
-        
+        }   
     }
-    
-    // Command handler methods - private static methods
-    // These should return a String, and can accept the String for the noun which was entered
-    
-    
 }

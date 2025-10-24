@@ -15,8 +15,8 @@ public class Map {
         Room redRoom = new Room("Red room", "a room with red walls.");
         blueRoom.addDoorTo(redRoom, "dusty door");
         redRoom.addDoorTo(blueRoom, "wooden door");
-        // add more rooms to build out the game here:
         
+        // add more rooms to build out the game here:
         
         
     }

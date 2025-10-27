@@ -1,3 +1,4 @@
+package core;
 public class Door {
     
     private Room room;

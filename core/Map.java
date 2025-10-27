@@ -1,22 +1,33 @@
+package core;
+import items.Bread;
+import items.PeanutButter;
+
+
 public class Map {
     
     private Room startRoom;
     private Room currentRoom;
     
     public Map(){
-        // here we will set up the rooms in the map
+        // set up the rooms in the map
         Room blueRoom = new Room("Blue room", "a room with blue walls.");
         this.startRoom = blueRoom;
         this.currentRoom = this.startRoom;
         
         Item paperclip = new Item("paperclip", "a normal paperclip");
         blueRoom.addItem(paperclip);
+        PeanutButter pb = new PeanutButter("jif");
+        blueRoom.addItem(pb);
+        Bread bread = new Bread("bread");
+        blueRoom.addItem(bread);
+
+
         
         Room redRoom = new Room("Red room", "a room with red walls.");
         blueRoom.addDoorTo(redRoom, "dusty door");
         redRoom.addDoorTo(blueRoom, "wooden door");
-        // add more rooms to build out the game here:
         
+        // add more rooms to build out the game here:
         
         
     }
